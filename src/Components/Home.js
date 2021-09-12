@@ -12,7 +12,6 @@ function Home() {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        console.log(res);
         setProducts(res.data);
       })
       .catch((err) => {
@@ -22,17 +21,14 @@ function Home() {
 
   return (
     <div
-      class="font-serif h-auto bg-contain bg-gradient-to-r from-green-100 to-gray-500" //style={{ backgroundImage: `url(${image})` }}
+      className="font-serif h-auto bg-contain bg-gradient-to-r from-gray-300 to-gray-500" //style={{ backgroundImage: `url(${image})` }}
     >
-      <section class="sticky top-0">
+      <section className="sticky top-0">
         <Navbar />
       </section>
-      <section
-        class="flex flex-wrap justify-around flex-grow flex-shrink-0 
-      pb-10"
-      >
+      <section className="flex flex-wrap justify-around flex-grow pb-10">
         {products.map((p, index) => (
-          <Card key={index} {...p} />
+          <Card key={index} props={p} />
         ))}
       </section>
     </div>

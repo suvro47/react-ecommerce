@@ -1,9 +1,9 @@
-import Home from "./Components/Home";
+import { ContextHandler } from "./GlobalContexts/ContextHandler";
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <ContextHandler />
     </div>
   );
 }

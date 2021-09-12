@@ -1,22 +1,24 @@
 import Counter from "./Counter";
 
-function Card({ id, title, price, image, category }) {
+function Card({ props }) {
+  const { title, price, image, category } = props;
+
   return (
     <>
       <div>
-        <div class="bg-white rounded shadow-2xl ml-8 mr-8 mt-8 w-60 h-auto">
-          <div class="flex justify-center p-10">
-            <img class="w-28 h-28" src={image} alt="" />
+        <div className="bg-white rounded shadow-2xl ml-8 mr-8 mt-8 w-60">
+          <div className="flex justify-center p-10">
+            <img className="w-32 h-32" src={image} alt="" />
           </div>
-          <div class="pl-8 pb-4 pr-4 border-1">
+          <div className="pl-8 pb-4 pr-4 border-1">
             <p> {title}</p>
             <p> Category : {category}</p>
             <p> Price: {price} </p>
           </div>
         </div>
 
-        <div class="shadow-2xl ml-8 mr-8 w-auto px-2 py-1 rounded bg-gradient-to-r from-red-500 to-red-900 text-base p-2">
-          <Counter count={0} />
+        <div className="shadow-2xl ml-8 mr-8 w-auto px-2 py-1 rounded bg-gradient-to-r from-red-500 to-red-900 text-base p-2">
+          <Counter props={props} />
         </div>
       </div>
     </>
