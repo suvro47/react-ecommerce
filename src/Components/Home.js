@@ -22,12 +22,15 @@ function Home() {
 
   return (
     <div
-      class="font-serif h-auto bg-contain bg-gradient-to-r from-blue-200 to-green-500" //style={{ backgroundImage: `url(${image})` }}
+      class="font-serif h-auto bg-contain bg-gradient-to-r from-green-100 to-gray-500" //style={{ backgroundImage: `url(${image})` }}
     >
       <section class="sticky top-0">
         <Navbar />
       </section>
-      <section class="flex flex-wrap justify-around">
+      <section
+        class="flex flex-wrap justify-around flex-grow flex-shrink-0 
+      pb-10"
+      >
         {products.map((p, index) => (
           <Card key={index} {...p} />
         ))}
