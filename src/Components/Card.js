@@ -8,12 +8,14 @@ function Card({ props }) {
       <div>
         <div className="bg-white rounded shadow-2xl ml-8 mr-8 mt-8 w-60">
           <div className="flex justify-center p-10">
-            <img className="w-32 h-32" src={image} alt="" />
+            <img className="w-48 h-48" src={image} alt="" />
           </div>
           <div className="pl-8 pb-4 pr-4 border-1">
             <p> {title}</p>
-            <p> Category : {category}</p>
-            <p> Price: {price} </p>
+            <p> {category}</p>
+            <p>
+              <b> {price} $ </b>
+            </p>
           </div>
         </div>
 

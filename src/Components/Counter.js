@@ -17,35 +17,39 @@ function Counter({ props }) {
 
   function addToCart(e, count, props) {
     e.preventDefault();
-    // update the props here
+    setCounter(0);
     const updatedProps = { ...props, count };
-    //console.log(updatedProps);
     dispatch(updatedProps);
   }
 
   return (
     <>
-      <div className="text-white">
-        <button
-          className="font-black mr-2 rounded-full h-8 w-8 bg-gradient-to-r from-purple-500 to-purple-900 text-base"
-          onClick={(e) => clickHandler(e, "INCREMENT")}
-        >
-          +
-        </button>
-        <div className="text-xl inline">{count}</div>
-        <button
-          className="font-black ml-2 rounded-full h-8 w-8 bg-gradient-to-r from-purple-500 to-purple-900 text-base"
-          onClick={(e) => clickHandler(e, "DECREMENT")}
-        >
-          -
-        </button>
+      <div className="text-white flex justify-between mt-2">
+        <div className="flex justify-between">
+          <button
+            className="font-black mr-2 rounded-full h-8 w-8 bg-gradient-to-r from-purple-500 to-purple-900 text-base"
+            onClick={(e) => clickHandler(e, "DECREMENT")}
+          >
+            -
+          </button>
+          <div className="text-xl inline w-7">{count}</div>
 
-        <button
-          className="font-white rounded bg-black text-base pl-2 pr-2 m-2"
-          onClick={(e) => addToCart(e, count, props)}
-        >
-          Add To Cart
-        </button>
+          <button
+            className="font-black rounded-full h-8 w-8 bg-gradient-to-r from-purple-500 to-purple-900 text-base"
+            onClick={(e) => clickHandler(e, "INCREMENT")}
+          >
+            +
+          </button>
+        </div>
+
+        <div>
+          <button
+            className="font-white rounded bg-black text-base p-1 mb-1"
+            onClick={(e) => addToCart(e, count, props)}
+          >
+            Add To Cart
+          </button>
+        </div>
       </div>
     </>
   );

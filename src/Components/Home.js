@@ -26,7 +26,7 @@ function Home() {
       <section className="sticky top-0">
         <Navbar />
       </section>
-      <section className="flex flex-wrap justify-around flex-grow pb-10">
+      <section className="flex flex-wrap justify-around pb-10">
         {products.map((p, index) => (
           <Card key={index} props={p} />
         ))}
