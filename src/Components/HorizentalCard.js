@@ -13,12 +13,12 @@ function HorizentalCard({ props }) {
           <img className="w-28 h-28" src={image} alt="" />
         </div>
 
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center w-2/6">
           <p> {title}</p>
         </div>
 
         <div className="flex flex-col justify-center mx-2">
-          <p> {price}$ </p>
+          <p> {price} $ </p>
         </div>
 
         <div className="flex flex-col justify-center mx-2 ">x</div>
@@ -32,7 +32,9 @@ function HorizentalCard({ props }) {
           >
             -
           </button>
-          <div className="flex flex-row justify-center pt-1 border-2 w-10 h-10">{_count}</div>
+          <div className="flex flex-row justify-center pt-2 border-2 border-l-0 border-r-0 w-8 h-10">
+            {_count}
+          </div>
           <button
             className="border-2 w-10 h-10"
             onClick={(e) => {
@@ -42,6 +44,10 @@ function HorizentalCard({ props }) {
           >
             +
           </button>
+        </div>
+
+        <div className="flex flex-col justify-center mx-2 w-1/6">
+          <p>Total Price : { _count  *  price } $ </p>
         </div>
       </div>
     </>
