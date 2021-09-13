@@ -24,18 +24,17 @@ function Counter({ props }) {
 
   return (
     <>
-      <div className="text-white flex justify-between mt-2">
+      <div className="text-white flex justify-between pt-1">
         <div className="flex justify-between">
           <button
-            className="font-black mr-2 rounded-full h-8 w-8 bg-gradient-to-r from-purple-500 to-purple-900 text-base"
+            className="font-black ml-2 mt-2 rounded-full h-6 w-6 bg-gradient-to-r from-black to-purple-900"
             onClick={(e) => clickHandler(e, "DECREMENT")}
           >
             -
           </button>
-          <div className="text-xl inline w-7">{count}</div>
-
+          <div className="inline w-10 flex justify-center mt-1 text-lg">{count}</div>
           <button
-            className="font-black rounded-full h-8 w-8 bg-gradient-to-r from-purple-500 to-purple-900 text-base"
+            className="font-black rounded-full h-6 w-6 bg-gradient-to-r from-black to-purple-900 mt-2"
             onClick={(e) => clickHandler(e, "INCREMENT")}
           >
             +
@@ -44,7 +43,7 @@ function Counter({ props }) {
 
         <div>
           <button
-            className="font-white rounded bg-black text-base p-1 mb-1"
+            className="text-black rounded bg-gray-200 mt-1 mr-2 mb-2 p-1 px-2"
             onClick={(e) => addToCart(e, count, props)}
           >
             Add To Cart

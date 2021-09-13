@@ -11,8 +11,8 @@ function Navbar() {
           </div>
         </div>
         <div className="flex flex-col justify-center">
-          <button className="px-2 py-1 rounded bg-gradient-to-r from-yellow-500 to-yellow-700 text-base">
-            Buy Now
+          <button className="px-4 py-1 rounded bg-gradient-to-r from-yellow-500 to-yellow-700 text-base">
+            Cart
           </button>
         </div>
       </div>
