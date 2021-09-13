@@ -4,6 +4,7 @@ import logo from "../assets/logo.jpg";
 
 function Navbar() {
   const { totalCount, setIsModalOpen } = useContext(Context);
+
   return (
     <nav className="bg-black text-white text-lg">
       <div className="flex justify-between w-11/12 m-auto">

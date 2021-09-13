@@ -5,12 +5,13 @@ import HorizentalCard from "./HorizentalCard";
 
 const customStyles = {
   content: {
-    top: "112px",
+    top: "80px",
     left: "2px",
     right: "0%",
     bottom: "auto",
     width: "75%",
     height: "auto",
+    
   },
 };
 
@@ -19,7 +20,7 @@ function Cart() {
   const { info } = useContext(Context);
 
   return (
-    <Modal isOpen={isModalOpen} style={customStyles}>
+    <Modal isOpen={isModalOpen} style={customStyles} className="">
       <button
         className="float-right text-3xl -mt-4 font-semibold"
         onClick={(e) => {
@@ -30,7 +31,7 @@ function Cart() {
         &times;
       </button>
 
-      <div className="">
+      <div className="m-10">
         {info.map((c, index) => (
           <HorizentalCard key={index} props={c} />
         ))}
