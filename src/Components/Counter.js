@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
 function Counter({ props }) {
-  const { dispatch } = useContext(Context);
+  const { info, dispatch, setTotalCount } = useContext(Context);
   const [count, setCounter] = useState(0);
 
   function clickHandler(e, action, props) {
@@ -17,8 +17,12 @@ function Counter({ props }) {
 
   function addToCart(e, count, props) {
     e.preventDefault();
-    setCounter(0);
     const updatedProps = { ...props, count };
+    let total = 0;
+    for (let i = 0; i < info.length; i++) {
+      if (info[i] !== undefined) total += info[i].count;
+    }
+    setTotalCount(total);
     dispatch(updatedProps);
   }
 
@@ -32,7 +36,9 @@ function Counter({ props }) {
           >
             -
           </button>
-          <div className="inline w-10 flex justify-center mt-1 text-lg">{count}</div>
+          <div className="inline w-10 flex justify-center mt-1 text-lg">
+            {count}
+          </div>
           <button
             className="font-black rounded-full h-6 w-6 bg-gradient-to-r from-black to-purple-900 mt-2"
             onClick={(e) => clickHandler(e, "INCREMENT")}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
 import Card from "./Card";
+import Cart from "./Cart";
 
 //import image from "../assets/image.jpg";
 
@@ -21,7 +22,7 @@ function Home() {
 
   return (
     <div
-      className="font-serif h-auto bg-contain bg-gradient-to-r from-gray-300 to-gray-500" //style={{ backgroundImage: `url(${image})` }}
+      className="font-serif h-auto bg-contain bg-gradient-to-r from-gray-300 to-gray-200" //style={{ backgroundImage: `url(${image})` }}
     >
       <section className="sticky top-0">
         <Navbar />
@@ -30,6 +31,9 @@ function Home() {
         {products.map((p, index) => (
           <Card key={index} props={p} />
         ))}
+      </section>
+      <section>
+        <Cart />
       </section>
     </div>
   );
