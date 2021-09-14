@@ -25,7 +25,7 @@ function Home() {
 
   return (
     <div
-      className="h-auto font-sans font-medium bg-contain " //style={{ backgroundImage: `url(${image})` }}
+      className="h-auto font-sans font-medium bg-contain bg-gradient-to-r from-gray-100 to-gray-300" //style={{ backgroundImage: `url(${image})` }}
     >
       <section className="sticky top-0">
         <Navbar />
@@ -43,7 +43,7 @@ function Home() {
           </section>
         </div>
       ) : (
-        <div className="w-20 m-auto my-40">
+        <div className="w-20 h-screen m-auto my-40">
           <Loader
             type="Bars"
             color="#00BFFF"
