@@ -20,7 +20,7 @@ function HorizentalCard({ props }) {
 
   return (
     <>
-      <div className="flex flex-row flex-wrap mb-2 border-2">
+      <div className="flex flex-row mb-2 border-2">
         <div className="flex flex-col justify-center p-2 m-4">
           <img className="w-28 h-28" src={image} alt="" />
         </div>

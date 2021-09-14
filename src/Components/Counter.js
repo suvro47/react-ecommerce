@@ -29,7 +29,7 @@ function Counter({ props }) {
       <div className="flex justify-between pt-1 text-white">
         <div className="flex justify-between">
           <button
-            className="w-6 h-6 mt-2 ml-2 font-black rounded-full bg-gradient-to-r from-black to-purple-900"
+            className="w-6 h-6 mt-2 ml-2 font-black rounded-full bg-gradient-to-r from-red-500 to-red-900"
             onClick={(e) => {
               e.preventDefault();
               setCounter((prevState) =>
@@ -41,7 +41,7 @@ function Counter({ props }) {
           </button>
           <div className="flex justify-center w-10 mt-1 text-lg">{count}</div>
           <button
-            className="w-6 h-6 mt-2 font-black rounded-full bg-gradient-to-r from-black to-purple-900"
+            className="w-6 h-6 mt-2 font-black rounded-full bg-gradient-to-r from-red-500 to-red-900"
             onClick={(e) => {
               e.preventDefault();
               setCounter((prev) => prev + 1);

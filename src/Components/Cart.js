@@ -37,7 +37,7 @@ function Cart() {
           &times;
         </button>
         <div className="flex flex-row justify-between w-1/2 p-2 m-auto text-xl font-black text-red-900">
-          <h1> Opps !! You have not select any product yet :( </h1>
+          <h1> Opps !! You haven't selected any product yet :( </h1>
         </div>
       </Modal>
     );
