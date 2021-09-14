@@ -15,8 +15,7 @@ const customStyles = {
 };
 
 function Cart() {
-  const { isModalOpen, setIsModalOpen } = useContext(Context);
-  const { info } = useContext(Context);
+  const { info, isModalOpen, setIsModalOpen } = useContext(Context);
 
   let cost = 0;
 

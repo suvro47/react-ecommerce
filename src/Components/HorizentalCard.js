@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
 function HorizentalCard({ props }) {
-  const { info, dispatch, setTotalCount } = useContext(Context);
+  const { info, setInfo, setTotalCount } = useContext(Context);
   const [_count, set_Counter] = useState(props.count);
 
   const { id, title, price, image, count } = props;
@@ -15,8 +15,8 @@ function HorizentalCard({ props }) {
   useEffect(() => {
     setTotalCount((prev) => prev - count + _count);
     info[id].count = _count;
-    dispatch(info);
-  }, [_count, info, count, dispatch, id, setTotalCount]);
+    setInfo(info);
+  }, [_count, info, count, setInfo, id, setTotalCount]);
 
   return (
     <>

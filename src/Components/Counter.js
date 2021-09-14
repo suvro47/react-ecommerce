@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
 function Counter({ props }) {
-  const { info, dispatch, setTotalCount } = useContext(Context);
+  const { info, setInfo, setTotalCount } = useContext(Context);
   const [count, setCounter] = useState(1);
 
   function addToCart(e, count, props) {
@@ -14,11 +14,13 @@ function Counter({ props }) {
       console.log(updatedCount);
       const updatedProps = { ...props, count: updatedCount };
       setTotalCount((prev) => prev + count);
-      dispatch(updatedProps);
+      info[updatedProps.id] = updatedProps;
+      setInfo(info);
     } else {
       const updatedProps = { ...props, count };
       setTotalCount((prev) => prev + updatedProps.count);
-      dispatch(updatedProps);
+      info[updatedProps.id] = updatedProps;
+      setInfo(info);
     }
   }
 

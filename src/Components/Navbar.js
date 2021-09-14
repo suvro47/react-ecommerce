@@ -1,5 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
+import Badge from "@material-ui/core/Badge";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "../assets/logo.jpg";
 
 function Navbar() {
@@ -17,19 +19,21 @@ function Navbar() {
 
         <div className="flex flex-col justify-center">
           <div className="flex flex-row justify-center">
-            <div className="flex justify-center w-12 h-8 text-white rounded rounded-r-none bg-gradient-to-r from-yellow-700 to-yellow-500">
-              {totalCount}
-            </div>
             <div className="flex flex-col justify-center">
               <button
-                className="h-8 px-4 py-1 text-base rounded rounded-l-none bg-gradient-to-r from-yellow-500 to-yellow-700"
+                className="h-8 px-4"
                 onClick={(e) => {
                   e.preventDefault();
                   setIsModalOpen(true);
                 }}
               >
-                Cart
+                <Badge color="secondary">
+                  <ShoppingCartIcon />
+                </Badge>
               </button>
+            </div>
+            <div className="flex justify-center w-12 h-8 text-white rounded bg-gradient-to-r from-yellow-700 to-yellow-500">
+              {totalCount}
             </div>
           </div>
         </div>

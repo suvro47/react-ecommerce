@@ -1,18 +1,10 @@
-import { useState, createContext, useReducer } from "react";
+import { useState, createContext } from "react";
 import Home from "../Components/Home";
 
 export const Context = new createContext();
 
-const iState = [];
-
-function reducer(state, payload) {
-  state[payload.id] = payload;
-  console.log(state[payload.id]);
-  return state;
-}
-
 export function ContextHandler() {
-  const [info, dispatch] = useReducer(reducer, iState);
+  const [info, setInfo] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
 
@@ -21,7 +13,7 @@ export function ContextHandler() {
       <Context.Provider
         value={{
           info,
-          dispatch,
+          setInfo,
           totalCount,
           setTotalCount,
           isModalOpen,
