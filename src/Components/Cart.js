@@ -68,7 +68,7 @@ function Cart() {
       </div>
 
       <div className="flex flex-row justify-between w-1/2 p-2 m-auto ">
-        <div className="px-2 py-1 text-base text-white bg-red-700 rounded shadow-2xl">
+        <div className="flex justify-center w-auto px-2 text-base text-white bg-red-700 rounded shadow-2xl justipy-1">
           Total Cost : {cost.toFixed(2)} $
         </div>
         <button className="px-2 py-1 text-base text-white bg-green-700 rounded shadow-2xl">
