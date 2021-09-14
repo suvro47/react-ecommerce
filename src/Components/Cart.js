@@ -9,11 +9,10 @@ const customStyles = {
     left: "2px",
     right: "0%",
     bottom: "auto",
-    width: "75%",
-    height: "auto",
+    width: "65%",
+    height: "80%",
   },
 };
-
 function Cart() {
   const { info, isModalOpen, setIsModalOpen } = useContext(Context);
 
@@ -26,6 +25,7 @@ function Cart() {
         ariaHideApp={false}
         onRequestClose={() => setIsModalOpen(false)}
         style={customStyles}
+        htmlOpenClassName="overflow-hidden"
       >
         <button
           className="float-right -mt-4 text-3xl font-semibold"
@@ -49,6 +49,7 @@ function Cart() {
       ariaHideApp={false}
       onRequestClose={() => setIsModalOpen(false)}
       style={customStyles}
+      htmlOpenClassName="overflow-hidden"
     >
       <button
         className="float-right -mt-4 text-3xl font-semibold"
