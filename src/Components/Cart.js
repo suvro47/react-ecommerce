@@ -11,7 +11,6 @@ const customStyles = {
     bottom: "auto",
     width: "75%",
     height: "auto",
-    
   },
 };
 
@@ -19,10 +18,16 @@ function Cart() {
   const { isModalOpen, setIsModalOpen } = useContext(Context);
   const { info } = useContext(Context);
 
+  let cost = 0;
   return (
-    <Modal isOpen={isModalOpen} style={customStyles} className="">
+    <Modal
+      isOpen={isModalOpen}
+      ariaHideApp={false}
+      onRequestClose={() => setIsModalOpen(false)}
+      style={customStyles}
+    >
       <button
-        className="float-right text-3xl -mt-4 font-semibold"
+        className="float-right -mt-4 text-3xl font-semibold"
         onClick={(e) => {
           e.preventDefault();
           setIsModalOpen(false);
@@ -30,11 +35,20 @@ function Cart() {
       >
         &times;
       </button>
-
       <div className="m-10">
-        {info.map((c, index) => (
-          <HorizentalCard key={index} props={c} />
-        ))}
+        {info.map((c, index) => {
+          cost += c.price * c.count;
+          return <HorizentalCard key={index} props={c} />;
+        })}
+      </div>
+
+      <div className="flex flex-row justify-between w-1/2 p-2 m-auto ">
+        <div className="px-2 py-1 text-base text-white bg-red-700 rounded shadow-2xl">
+          Total Cost : {cost} $
+        </div>
+        <button className="px-2 py-1 text-base text-white bg-green-700 rounded shadow-2xl">
+          Request To Process
+        </button>
       </div>
     </Modal>
   );

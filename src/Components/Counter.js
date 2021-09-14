@@ -2,43 +2,48 @@ import { useState, useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
 function Counter({ props }) {
-  const { dispatch, setTotalCount } = useContext(Context);
-  const [count, setCounter] = useState(0);
-
-  function clickHandler(e, action) {
-    e.preventDefault();
-    if (action === "INCREMENT") {
-      setCounter((prevState) => prevState + 1);
-    }
-    if (action === "DECREMENT") {
-      setCounter((prevState) => prevState - 1);
-    }
-  }
+  const { info, dispatch, setTotalCount } = useContext(Context);
+  const [count, setCounter] = useState(1);
 
   function addToCart(e, count, props) {
     e.preventDefault();
-    const updatedProps = { ...props, count };
-    console.log(updatedProps.count);
-    setTotalCount((prev) => prev + updatedProps.count);
-    dispatch(updatedProps);
+    setCounter(1);
+
+    if (info[props.id] !== undefined) {
+      const updatedCount = count + info[props.id].count;
+      console.log(updatedCount);
+      const updatedProps = { ...props, count: updatedCount };
+      setTotalCount((prev) => prev + count);
+      dispatch(updatedProps);
+    } else {
+      const updatedProps = { ...props, count };
+      setTotalCount((prev) => prev + updatedProps.count);
+      dispatch(updatedProps);
+    }
   }
 
   return (
     <>
-      <div className="text-white flex justify-between pt-1">
+      <div className="flex justify-between pt-1 text-white">
         <div className="flex justify-between">
           <button
-            className="font-black ml-2 mt-2 rounded-full h-6 w-6 bg-gradient-to-r from-black to-purple-900"
-            onClick={(e) => clickHandler(e, "DECREMENT")}
+            className="w-6 h-6 mt-2 ml-2 font-black rounded-full bg-gradient-to-r from-black to-purple-900"
+            onClick={(e) => {
+              e.preventDefault();
+              setCounter((prevState) =>
+                prevState - 1 === 0 ? 1 : prevState - 1
+              );
+            }}
           >
             -
           </button>
-          <div className="inline w-10 flex justify-center mt-1 text-lg">
-            {count}
-          </div>
+          <div className="flex justify-center w-10 mt-1 text-lg">{count}</div>
           <button
-            className="font-black rounded-full h-6 w-6 bg-gradient-to-r from-black to-purple-900 mt-2"
-            onClick={(e) => clickHandler(e, "INCREMENT")}
+            className="w-6 h-6 mt-2 font-black rounded-full bg-gradient-to-r from-black to-purple-900"
+            onClick={(e) => {
+              e.preventDefault();
+              setCounter((prev) => prev + 1);
+            }}
           >
             +
           </button>
@@ -46,7 +51,7 @@ function Counter({ props }) {
 
         <div>
           <button
-            className="text-black rounded bg-gray-200 mt-1 mr-2 mb-2 p-1 px-2"
+            className="p-1 px-2 mt-1 mb-2 mr-2 text-black bg-gray-200 rounded"
             onClick={(e) => addToCart(e, count, props)}
           >
             Add To Cart

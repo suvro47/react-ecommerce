@@ -22,7 +22,7 @@ function Home() {
 
   return (
     <div
-      className="font-serif h-auto bg-contain bg-gradient-to-r from-gray-300 to-gray-200" //style={{ backgroundImage: `url(${image})` }}
+      className="h-auto font-sans font-medium bg-contain bg-gradient-to-r from-gray-300 to-gray-200" //style={{ backgroundImage: `url(${image})` }}
     >
       <section className="sticky top-0">
         <Navbar />
