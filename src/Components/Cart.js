@@ -19,6 +19,31 @@ function Cart() {
   const { info } = useContext(Context);
 
   let cost = 0;
+
+  if (info.length === 0) {
+    return (
+      <Modal
+        isOpen={isModalOpen}
+        ariaHideApp={false}
+        onRequestClose={() => setIsModalOpen(false)}
+        style={customStyles}
+      >
+        <button
+          className="float-right -mt-4 text-3xl font-semibold"
+          onClick={(e) => {
+            e.preventDefault();
+            setIsModalOpen(false);
+          }}
+        >
+          &times;
+        </button>
+        <div className="flex flex-row justify-between w-1/2 p-2 m-auto text-xl font-black text-red-900">
+          <h1> Opps !! You have not select any product yet :( </h1>
+        </div>
+      </Modal>
+    );
+  }
+
   return (
     <Modal
       isOpen={isModalOpen}
