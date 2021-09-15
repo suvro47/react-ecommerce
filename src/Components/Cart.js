@@ -10,7 +10,7 @@ const customStyles = {
     left: "2px",
     right: "0%",
     bottom: "auto",
-    width: "65%",
+    width: "57%",
     height: "80%",
   },
 };

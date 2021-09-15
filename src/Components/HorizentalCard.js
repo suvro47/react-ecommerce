@@ -20,7 +20,7 @@ function HorizentalCard({ props }) {
 
   return (
     <>
-      <div className="flex flex-row flex-wrap mb-2 border-2 ">
+      <div className="flex flex-row flex-wrap mb-2 font-sans font-medium border-2">
         <div className="flex flex-col justify-center p-2 m-4">
           <img className="w-28 h-28" src={image} alt="" />
         </div>
@@ -34,7 +34,7 @@ function HorizentalCard({ props }) {
         </div>
 
         <div className="flex flex-row justify-center w-auto mx-2">
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center w-8">
             <button
               className="px-2 py-1 border rounded"
               onClick={(e) => {
@@ -46,7 +46,7 @@ function HorizentalCard({ props }) {
             >
               -
             </button>
-            <div className="px-2 py-1 border rounded">{_count}</div>
+            <div className="px-2 py-1 text-center border">{_count}</div>
             <button
               className="px-2 py-1 border rounded"
               onClick={(e) => {
