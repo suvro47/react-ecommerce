@@ -1,22 +1,16 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
 function HorizentalCard({ props }) {
   const { info, setInfo, setTotalCount } = useContext(Context);
   const [_count, set_Counter] = useState(props.count);
 
-  const { id, title, price, image, count } = props;
+  const { id, title, price, image } = props;
 
   function calcuatePrice() {
     let p = _count * price;
     return p.toFixed(2);
   }
-
-  useEffect(() => {
-    setTotalCount((prev) => prev - count + _count);
-    info[id].count = _count;
-    setInfo(info);
-  }, [_count, info, count, setInfo, id, setTotalCount]);
 
   return (
     <>
@@ -42,6 +36,9 @@ function HorizentalCard({ props }) {
                 set_Counter((prevState) =>
                   prevState - 1 === 0 ? 1 : prevState - 1
                 );
+                info[id].count = _count;
+                setTotalCount((prev) => prev - 1);
+                setInfo(info);
               }}
             >
               -
@@ -52,6 +49,9 @@ function HorizentalCard({ props }) {
               onClick={(e) => {
                 e.preventDefault();
                 set_Counter((prev) => prev + 1);
+                info[id].count = _count;
+                setTotalCount((prev) => prev + 1);
+                setInfo(info);
               }}
             >
               +

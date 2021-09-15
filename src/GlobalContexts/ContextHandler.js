@@ -27,7 +27,7 @@ export function ContextHandler() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/purchese">
+            <Route path="/purchese_request">
               <Purchese />
             </Route>
             <Route path="/*">
