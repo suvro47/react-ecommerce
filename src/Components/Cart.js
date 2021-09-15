@@ -59,7 +59,7 @@ function Cart() {
               Total Cost : {cost.toFixed(2)} $
             </div>
             <button className="px-2 py-1 text-base text-white bg-green-700 rounded shadow-2xl">
-              <Link to="/purchese"> Request To Process</Link>
+              <Link to="/purchese_request"> Request To Process</Link>
             </button>
           </div>
         )}

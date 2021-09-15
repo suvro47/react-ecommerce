@@ -27,7 +27,7 @@ function Counter({ props }) {
                 set_Counter((prevState) =>
                   prevState - 1 === 0 ? 1 : prevState - 1
                 );
-                info[id].count = _count;
+                info[id].count = info[id].count - 1;
                 setTotalCount((prev) => prev - 1);
                 setInfo(info);
               }}
@@ -42,7 +42,7 @@ function Counter({ props }) {
               onClick={(e) => {
                 e.preventDefault();
                 set_Counter((prev) => prev + 1);
-                info[id].count = _count;
+                info[id].count = info[id].count + 1;
                 setTotalCount((prev) => prev + 1);
                 setInfo(info);
               }}
