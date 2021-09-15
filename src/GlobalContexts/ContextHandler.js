@@ -1,5 +1,7 @@
 import { useState, createContext } from "react";
 import Home from "../Components/Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Purchese from "../Components/Purchese";
 
 export const Context = new createContext();
 
@@ -20,7 +22,21 @@ export function ContextHandler() {
           setIsModalOpen,
         }}
       >
-        <Home />
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/purchese">
+              <Purchese />
+            </Route>
+            <Route path="/*">
+              <div className="flex flex-col items-center mt-48">
+                <h1> 404 not found </h1>
+              </div>
+            </Route>
+          </Switch>
+        </Router>
       </Context.Provider>
     </div>
   );

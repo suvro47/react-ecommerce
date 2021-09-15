@@ -12,7 +12,7 @@ function Navbar() {
       <div className="flex justify-between w-11/12 m-auto">
         <div className="flex">
           <img className="w-20 h-20" src={logo} alt="logo" />
-          <div className="flex flex-col justify-center">&nbsp; EgalMarket</div>
+          <div className="flex flex-col justify-center">&nbsp; EgalMart</div>
         </div>
 
         <div className="flex flex-col justify-center">
