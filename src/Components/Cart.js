@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const customStyles = {
   content: {
     top: "80px",
-    left: "39%",
+    left: "40%",
     right: "0%",
     bottom: "auto",
     width: "57%",
@@ -18,7 +18,6 @@ function Cart() {
   const { info, isModalOpen, setIsModalOpen } = useContext(Context);
 
   let cost = 0;
-  let flag = false;
 
   return (
     <Modal
@@ -42,7 +41,6 @@ function Cart() {
         <div className="m-10">
           {info.map((c, index) => {
             cost += c.price * c.count;
-            if (cost > 0) flag = true;
             return <HorizentalCard key={index} props={c} />;
           })}
         </div>

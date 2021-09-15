@@ -27,11 +27,11 @@ function Navbar() {
               >
                 <Badge color="secondary">
                   <ShoppingCartIcon />
+                  <div className="w-8 text-white bg-red-500 rounded-full">
+                    {totalCount}
+                  </div>
                 </Badge>
               </button>
-            </div>
-            <div className="flex justify-center w-12 h-8 text-white rounded bg-gradient-to-r from-yellow-700 to-yellow-500">
-              {totalCount}
             </div>
           </div>
         </div>
