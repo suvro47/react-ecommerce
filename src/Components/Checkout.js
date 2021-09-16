@@ -11,7 +11,7 @@ export default function Purchese() {
   return (
     <>
       <div
-        className="h-full font-sans font-medium bg-contain bg-gradient-to-r from-gray-100 to-gray-200" //style={{ backgroundImage: `url(${image})` }}
+        className="h-full font-sans font-medium bg-contain bg-gradient-to-r from-gray-100 to-gray-200 " //style={{ backgroundImage: `url(${image})` }}
       >
         <section className="sticky top-0">
           <Navbar />
@@ -19,7 +19,10 @@ export default function Purchese() {
         {info.map(
           ({ title, price, count }, index) =>
             (count > 0 ? true : false) && (
-              <div className="w-1/2 m-auto mt-2 border-2" key={index}>
+              <div
+                className="w-1/2 m-auto mt-2 border-2 shadow-2xl"
+                key={index}
+              >
                 <ul className="flex justify-between p-2">
                   <li className="m-auto mt-0 rounded w-52"> Title : {title}</li>
                   <li className="w-32 m-auto mt-0 rounded">Price : {price}$</li>

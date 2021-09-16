@@ -16,21 +16,16 @@ function AddToCart({ props }) {
     set_Counter(info[id].count);
   }
 
-  // useEffect(() => {
-  //   if (info.hasOwnProperty("count")) {
-  //     //console.log(" checked............");
-  //     set_Counter(info[id].count);
-  //   }
-
-  //   console.log(" checked............");
-  // }, [info, id]);
-
+  /* this useEffect is not working */
   useEffect(() => {
-    console.log("i am in useeffect");
+    if (info.hasOwnProperty("count")) {
+      console.log(" checked in useEffect....");
+      set_Counter(info[id].count);
+    }
     return () => {
       console.log("Component unmunted.....");
     };
-  }, [info]);
+  }, [info, id]);
 
   return (
     <>

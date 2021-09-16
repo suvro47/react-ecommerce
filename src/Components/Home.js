@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
-import Card from "./Card";
+import Product from "./Product";
 import Buy from "./Buy";
 import Loader from "react-loader-spinner";
 
@@ -35,7 +35,7 @@ function Home() {
         <div>
           <section className="flex flex-wrap justify-around pb-10">
             {products.map((p, index) => (
-              <Card key={index} props={p} />
+              <Product key={index} props={p} />
             ))}
           </section>
           <section>
@@ -44,13 +44,7 @@ function Home() {
         </div>
       ) : (
         <div className="w-20 h-screen m-auto my-40">
-          <Loader
-            type="Bars"
-            color="#00BFFF"
-            height={80}
-            width={100}
-            timeout={10000}
-          />
+          <Loader type="Bars" color="#00BFFF" height={80} width={100} />
         </div>
       )}
     </div>

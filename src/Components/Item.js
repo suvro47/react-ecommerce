@@ -12,10 +12,21 @@ function HorizentalCard({ props }) {
     return p.toFixed(2);
   }
 
+  /* this useEffect is not working */
+  // useEffect(() => {
+  //   if (info.hasOwnProperty("count")) {
+  //     console.log(" checked in useEffect....");
+  //     set_Counter(info[id].count);
+  //   }
+  //   return () => {
+  //     console.log("Component unmunted.....");
+  //   };
+  // }, [info, id]);
+
   return (
     <>
       {(_count > 0 ? true : false) && (
-        <div className="flex flex-row flex-wrap mb-2 font-sans font-medium border-2">
+        <div className="flex flex-row flex-wrap mb-2 font-sans font-medium border rounded shadow-2xl">
           <div className="float-left">
             <button
               className="px-2 py-1"
@@ -23,11 +34,7 @@ function HorizentalCard({ props }) {
                 e.preventDefault();
                 setTotalCount((prev) => prev - _count);
                 set_Counter(0);
-                //info[id].count = 0;
-                //setInfo(info);
-
-                const updatedProps = { ...props, count: 0 };
-                info[id] = updatedProps;
+                info[id].count = 0;
                 setInfo(info);
               }}
             >
@@ -38,16 +45,16 @@ function HorizentalCard({ props }) {
             <img className="w-28 h-28" src={image} alt="" />
           </div>
 
-          <div className="flex flex-col justify-center w-40 mx-4">
+          <div className="flex flex-col justify-center w-40 mx-2">
             <p> {title}</p>
           </div>
 
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center mr-4 ">
             <p> {price} $ </p>
           </div>
 
-          <div className="flex flex-row justify-center w-auto mx-2">
-            <div className="flex flex-col justify-center w-8">
+          <div className="flex flex-col justify-center w-auto mx-4">
+            <div className="flex flex-row justify-center w-8">
               <button
                 className="px-2 py-1 border rounded"
                 onClick={(e) => {
