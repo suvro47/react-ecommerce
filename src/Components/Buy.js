@@ -10,7 +10,7 @@ const customStyles = {
     left: "40%",
     right: "0%",
     bottom: "auto",
-    width: "57%",
+    width: "65%",
     height: "80%",
   },
 };
@@ -28,7 +28,7 @@ function Cart() {
       htmlOpenClassName="overflow-hidden"
     >
       <button
-        className="float-right -mt-4 text-3xl font-semibold"
+        className="-mt-4 text-3xl font-semibold"
         onClick={(e) => {
           e.preventDefault();
           setIsModalOpen(false);
