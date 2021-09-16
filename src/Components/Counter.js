@@ -16,7 +16,21 @@ function Counter({ props }) {
     set_Counter(info[id].count);
   }
 
-  useEffect(() => {}, [info, id]);
+  // useEffect(() => {
+  //   if (info.hasOwnProperty("count")) {
+  //     //console.log(" checked............");
+  //     set_Counter(info[id].count);
+  //   }
+
+  //   console.log(" checked............");
+  // }, [info, id]);
+
+  useEffect(() => {
+    console.log("i am in useeffect");
+    return () => {
+      console.log("Component unmunted.....");
+    };
+  }, [info]);
 
   return (
     <>
@@ -41,7 +55,7 @@ function Counter({ props }) {
               -
             </button>
             <div className="flex justify-center w-10 mt-1 text-lg">
-              {info[id].count}
+              {_count}
             </div>
             <button
               className="w-6 h-6 my-2 font-black rounded-full bg-gradient-to-r from-red-500 to-red-900"

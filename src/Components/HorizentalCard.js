@@ -61,9 +61,7 @@ function HorizentalCard({ props }) {
               >
                 -
               </button>
-              <div className="px-2 py-1 text-center border">
-                {info[id].count}
-              </div>
+              <div className="px-2 py-1 text-center border">{_count}</div>
               <button
                 className="px-2 py-1 border rounded"
                 onClick={(e) => {
