@@ -7,6 +7,7 @@ export default function Purchese() {
   const { info } = useContext(Context);
 
   let cost = 1;
+
   return (
     <>
       <div
@@ -31,7 +32,7 @@ export default function Purchese() {
         {(cost !== 0.0 ? true : false) && (
           <div className="flex flex-row justify-center w-1/2 p-2 m-auto">
             <div className="px-2 py-1 mx-8 my-10 text-base text-white bg-red-700 rounded shadow-2xl">
-              Total Cost : {cost} $
+              Total Cost : {cost.toFixed(2)} $
             </div>
             <button className="px-2 py-1 my-10 text-base text-white bg-green-700 rounded shadow-2xl">
               <Link to="/purchese_request"> Processed To Request </Link>
