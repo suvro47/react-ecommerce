@@ -23,7 +23,11 @@ function HorizentalCard({ props }) {
                 e.preventDefault();
                 setTotalCount((prev) => prev - _count);
                 set_Counter(0);
-                info[id].count = 0;
+                //info[id].count = 0;
+                //setInfo(info);
+
+                const updatedProps = { ...props, count: 0 };
+                info[id] = updatedProps;
                 setInfo(info);
               }}
             >
