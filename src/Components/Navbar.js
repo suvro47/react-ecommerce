@@ -27,7 +27,7 @@ function Navbar() {
               >
                 <Badge color="secondary">
                   <ShoppingCartIcon />
-                  <div className="w-8 text-white bg-red-500 rounded-full">
+                  <div className="w-6 text-base text-white bg-red-700 rounded-full">
                     {totalCount}
                   </div>
                 </Badge>

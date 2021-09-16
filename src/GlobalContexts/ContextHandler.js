@@ -1,7 +1,7 @@
 import { useState, createContext } from "react";
 import Home from "../Components/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Purchese from "../Components/Purchese";
+import Checkout from "../Components/Checkout";
 
 export const Context = new createContext();
 
@@ -27,8 +27,8 @@ export function ContextHandler() {
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/purchese_request">
-              <Purchese />
+            <Route path="/checkout">
+              <Checkout />
             </Route>
             <Route path="/*">
               <div className="flex flex-col items-center mt-48">
