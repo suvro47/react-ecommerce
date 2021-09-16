@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
-function Counter({ props }) {
+function AddToCart({ props }) {
   const { info, setInfo, setTotalCount } = useContext(Context);
   const [_count, set_Counter] = useState(0);
 
@@ -89,4 +89,4 @@ function Counter({ props }) {
   );
 }
 
-export default Counter;
+export default AddToCart;

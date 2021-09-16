@@ -1,4 +1,4 @@
-import Counter from "./Counter";
+import AddToCart from "./AddToCart";
 
 function Card({ props }) {
   const { title, price, image } = props;
@@ -17,7 +17,7 @@ function Card({ props }) {
           </p>
         </div>
         <div className="px-2 py-1 text-base rounded-b shadow-2xl bg-gradient-to-r from-gray-500 to-gray-700">
-          <Counter props={props} />
+          <AddToCart props={props} />
         </div>
       </div>
     </>

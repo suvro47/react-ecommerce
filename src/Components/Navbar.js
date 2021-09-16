@@ -3,6 +3,7 @@ import { Context } from "../GlobalContexts/ContextHandler";
 import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import logo from "../assets/logo.jpg";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   const { totalCount, setIsModalOpen } = useContext(Context);
@@ -12,7 +13,9 @@ function Navbar() {
       <div className="flex justify-between w-11/12 m-auto">
         <div className="flex">
           <img className="w-20 h-20" src={logo} alt="logo" />
-          <div className="flex flex-col justify-center">&nbsp; EgalMart</div>
+          <div className="flex flex-col justify-center">
+            <Link to="/"> &nbsp; EgalMart </Link>
+          </div>
         </div>
 
         <div className="flex flex-col justify-center">

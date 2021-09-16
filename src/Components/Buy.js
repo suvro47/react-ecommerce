@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 import Modal from "react-modal";
-import HorizentalCard from "./HorizentalCard";
+import Item from "./Item";
 import { Link } from "react-router-dom";
 
 const customStyles = {
@@ -41,7 +41,7 @@ function Cart() {
         <div className="m-10">
           {info.map((c, index) => {
             cost += c.price * c.count;
-            return <HorizentalCard key={index} props={c} />;
+            return <Item key={index} props={c} />;
           })}
         </div>
 
