@@ -54,6 +54,9 @@ function HorizentalCard({ props }) {
                   info[id].count = info[id].count - 1;
                   setTotalCount((prev) => prev - 1);
                   setInfo(info);
+
+                  console.log("_count from Horizental Card ");
+                  console.log(_count);
                 }}
               >
                 -
@@ -69,6 +72,9 @@ function HorizentalCard({ props }) {
                   setTotalCount((prev) => prev + 1);
                   info[id].count = info[id].count + 1;
                   setInfo(info);
+
+                  console.log("_count from Horizental Card ");
+                  console.log(_count);
                 }}
               >
                 +

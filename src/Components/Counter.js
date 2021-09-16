@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
 function Counter({ props }) {
@@ -16,6 +16,8 @@ function Counter({ props }) {
     set_Counter(info[id].count);
   }
 
+  useEffect(() => {}, [info, id]);
+
   return (
     <>
       <div className="text-white">
@@ -31,6 +33,9 @@ function Counter({ props }) {
                 info[id].count = info[id].count - 1;
                 setTotalCount((prev) => prev - 1);
                 setInfo(info);
+
+                console.log("_count from Counter ");
+                console.log(_count);
               }}
             >
               -
@@ -46,6 +51,8 @@ function Counter({ props }) {
                 setTotalCount((prev) => prev + 1);
                 info[id].count = info[id].count + 1;
                 setInfo(info);
+                console.log("_count from Counter ");
+                console.log(_count);
               }}
             >
               +
