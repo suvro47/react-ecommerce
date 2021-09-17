@@ -1,41 +1,29 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
-function HorizentalCard({ props }) {
+function Item({ props }) {
   const { info, setInfo, setTotalCount } = useContext(Context);
-  const [_count, set_Counter] = useState(props.count);
-
   const { id, title, price, image } = props;
 
+  const currentItem = info.find((item) => item.id === id);
+
   function calcuatePrice() {
-    let p = _count * price;
+    let p = currentItem.count * price;
     return p.toFixed(2);
   }
 
-  /* this useEffect is not working */
-  // useEffect(() => {
-  //   if (info.hasOwnProperty("count")) {
-  //     console.log(" checked in useEffect....");
-  //     set_Counter(info[id].count);
-  //   }
-  //   return () => {
-  //     console.log("Component unmunted.....");
-  //   };
-  // }, [info, id]);
-
   return (
     <>
-      {(_count > 0 ? true : false) && (
+      {currentItem.count > 0 && (
         <div className="flex flex-row flex-wrap p-2 mb-2 font-sans font-medium border rounded shadow-2xl">
           <div className="float-left">
             <button
               className="px-2 py-1"
               onClick={(e) => {
                 e.preventDefault();
-                setTotalCount((prev) => prev - _count);
-                set_Counter(0);
-                info[id].count = 0;
-                setInfo(info);
+                // setTotalCount((prev) => prev - info[id].count);
+                // info[id] = undefined;
+                // setInfo(info);
               }}
             >
               X
@@ -59,31 +47,33 @@ function HorizentalCard({ props }) {
                 className="px-2 py-1 border rounded"
                 onClick={(e) => {
                   e.preventDefault();
-                  set_Counter((prevState) =>
-                    prevState - 1 <= 0 ? 0 : prevState - 1
-                  );
-                  info[id].count = info[id].count - 1;
-                  setTotalCount((prev) => prev - 1);
-                  setInfo(info);
-
-                  console.log("_count from Horizental Card ");
-                  console.log(_count);
+                  if (currentItem.count > 1) {
+                    const temp = [...info];
+                    temp.find((item) => item.id === id).count--;
+                    setTotalCount((prev) => prev - 1);
+                    setInfo(temp);
+                  } else {
+                    const temp = [...info];
+                    const index = temp.findIndex((item) => item.id === id);
+                    temp.splice(index, 1);
+                    setTotalCount((prev) => prev - 1);
+                    setInfo(temp);
+                  }
                 }}
               >
                 -
               </button>
-              <div className="px-2 py-1 text-center border">{_count}</div>
+              <div className="px-2 py-1 text-center border">
+                {currentItem.count}
+              </div>
               <button
                 className="px-2 py-1 border rounded"
                 onClick={(e) => {
                   e.preventDefault();
-                  set_Counter((prev) => prev + 1);
                   setTotalCount((prev) => prev + 1);
-                  info[id].count = info[id].count + 1;
-                  setInfo(info);
-
-                  console.log("_count from Horizental Card ");
-                  console.log(_count);
+                  const temp = [...info];
+                  temp.find((item) => item.id === id).count++;
+                  setInfo(temp);
                 }}
               >
                 +
@@ -100,4 +90,4 @@ function HorizentalCard({ props }) {
   );
 }
 
-export default HorizentalCard;
+export default Item;

@@ -1,6 +1,6 @@
 import AddToCart from "./AddToCart";
 
-function Card({ props }) {
+function Product({ props }) {
   const { title, price, image } = props;
 
   return (
@@ -24,4 +24,4 @@ function Card({ props }) {
   );
 }
 
-export default Card;
+export default Product;

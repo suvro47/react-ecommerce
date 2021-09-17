@@ -7,17 +7,20 @@ import { Link } from "react-router-dom";
 const customStyles = {
   content: {
     top: "80px",
-    left: "40%",
-    right: "0%",
+    left: "35%",
+    right: "auto",
     bottom: "auto",
     width: "65%",
     height: "80%",
   },
 };
-function Cart() {
+function Preview() {
   const { info, isModalOpen, setIsModalOpen } = useContext(Context);
 
   let cost = 0;
+
+  console.log("Info Details in Preview: ");
+  //console.log(JSON.stringify(info[id]));
 
   return (
     <Modal
@@ -45,7 +48,7 @@ function Cart() {
           })}
         </div>
 
-        {(cost === 0.0 ? true : false) && (
+        {cost === 0 && (
           <div className="warning">
             <div className="flex flex-row justify-between w-3/4 m-auto mt-20 text-xl font-black text-red-900">
               <h1> Opps !! You haven't selected any product yet :( </h1>
@@ -53,7 +56,7 @@ function Cart() {
           </div>
         )}
 
-        {(cost !== 0.0 ? true : false) && (
+        {cost !== 0 && (
           <div className="flex flex-row justify-center w-1/2 p-2 m-auto">
             <button
               className="px-2 py-1 mx-8 text-base text-white bg-red-700 rounded shadow-2xl"
@@ -73,4 +76,4 @@ function Cart() {
   );
 }
 
-export default Cart;
+export default Preview;

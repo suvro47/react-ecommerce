@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Navbar from "./Navbar";
 import Product from "./Product";
-import Buy from "./Buy";
+import Preview from "./Preview";
 import Loader from "react-loader-spinner";
 
 //import image from "../assets/image.jpg";
@@ -12,10 +12,12 @@ function Home() {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    //
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
         setProducts(res.data);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -31,7 +33,7 @@ function Home() {
         <Navbar />
       </section>
 
-      {isLoading ? (
+      {!isLoading ? (
         <div>
           <section className="flex flex-wrap justify-around pb-10">
             {products.map((p, index) => (
@@ -39,7 +41,7 @@ function Home() {
             ))}
           </section>
           <section>
-            <Buy />
+            <Preview />
           </section>
         </div>
       ) : (
