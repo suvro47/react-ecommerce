@@ -19,9 +19,6 @@ function Preview() {
 
   let cost = 0;
 
-  console.log("Info Details in Preview: ");
-  //console.log(JSON.stringify(info[id]));
-
   return (
     <Modal
       isOpen={isModalOpen}

@@ -14,15 +14,14 @@ function Counter({ id }) {
             className="w-6 h-6 my-2 font-black rounded-full bg-gradient-to-r from-red-500 to-red-900"
             onClick={(e) => {
               e.preventDefault();
-              if (currentItem.count > 1) {
+              if (currentItem.count > 0) {
                 const temp = [...info];
                 temp.find((item) => item.id === id).count--;
+                if (temp.find((item) => item.id === id).count === 0) {
+                  const index = temp.findIndex((item) => item.id === id);
+                  temp.splice(index, 1);
+                }
                 setTotalCount((prev) => prev - 1);
-                setInfo(temp);
-              } else {
-                const temp = [...info];
-                const index = temp.findIndex((item) => item.id === id);
-                temp.splice(index, 1);
                 setInfo(temp);
               }
             }}

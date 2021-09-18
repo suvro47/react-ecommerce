@@ -21,9 +21,11 @@ function Item({ props }) {
               className="px-2 py-1"
               onClick={(e) => {
                 e.preventDefault();
-                // setTotalCount((prev) => prev - info[id].count);
-                // info[id] = undefined;
-                // setInfo(info);
+                const temp = [...info];
+                const index = temp.findIndex((item) => item.id === id);
+                setTotalCount((prev) => prev - currentItem.count);
+                temp.splice(index, 1);
+                setInfo(temp);
               }}
             >
               X
@@ -47,15 +49,13 @@ function Item({ props }) {
                 className="px-2 py-1 border rounded"
                 onClick={(e) => {
                   e.preventDefault();
-                  if (currentItem.count > 1) {
+                  if (currentItem.count > 0) {
                     const temp = [...info];
                     temp.find((item) => item.id === id).count--;
-                    setTotalCount((prev) => prev - 1);
-                    setInfo(temp);
-                  } else {
-                    const temp = [...info];
-                    const index = temp.findIndex((item) => item.id === id);
-                    temp.splice(index, 1);
+                    if (temp.find((item) => item.id === id).count === 0) {
+                      const index = temp.findIndex((item) => item.id === id);
+                      temp.splice(index, 1);
+                    }
                     setTotalCount((prev) => prev - 1);
                     setInfo(temp);
                   }
