@@ -2,13 +2,12 @@ import { useState, createContext } from "react";
 import ProductList from "../Components/ProductList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Checkout from "../Components/Checkout";
-import useModalControll from "../Components/useModalControll";
 
 export const Context = new createContext();
 
 export function ContextHandler() {
   const [info, setInfo] = useState([]);
-  const { isModalOpen, setIsModalOpen } = useModalControll(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [totalCount, setTotalCount] = useState(0);
 
   return (
@@ -25,14 +24,14 @@ export function ContextHandler() {
       >
         <Router>
           <Switch>
-            <Route exact path='/'>
+            <Route exact path="/">
               <ProductList />
             </Route>
-            <Route path='/checkout'>
+            <Route path="/checkout">
               <Checkout />
             </Route>
-            <Route path='/*'>
-              <div className='flex flex-col items-center mt-48'>
+            <Route path="/*">
+              <div className="flex flex-col items-center mt-48">
                 <h1> 404 not found </h1>
               </div>
             </Route>
