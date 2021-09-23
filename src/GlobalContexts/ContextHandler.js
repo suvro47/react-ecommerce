@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-import Home from "../Components/Home";
+import ProductList from "../Components/ProductList";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Checkout from "../Components/Checkout";
 
@@ -25,7 +25,7 @@ export function ContextHandler() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Home />
+              <ProductList />
             </Route>
             <Route path="/checkout">
               <Checkout />

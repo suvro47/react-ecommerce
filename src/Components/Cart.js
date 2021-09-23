@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Context } from "../GlobalContexts/ContextHandler";
 
-function Item({ props }) {
+function Cart({ props }) {
   const { info, setInfo, setTotalCount } = useContext(Context);
   const { id, title, price, image } = props;
 
@@ -15,10 +15,10 @@ function Item({ props }) {
   return (
     <>
       {currentItem.count > 0 && (
-        <div className="flex flex-row flex-wrap p-2 mb-2 font-sans font-medium border rounded shadow-2xl">
-          <div className="float-left">
+        <div className='flex flex-row flex-wrap p-2 mb-2 font-sans font-medium border rounded shadow-2xl'>
+          <div className='float-left'>
             <button
-              className="px-2 py-1"
+              className='px-2 py-1'
               onClick={(e) => {
                 e.preventDefault();
                 const temp = [...info];
@@ -31,22 +31,22 @@ function Item({ props }) {
               X
             </button>
           </div>
-          <div className="flex flex-col justify-center p-2 mx-4">
-            <img className="w-28 h-28" src={image} alt="" />
+          <div className='flex flex-col justify-center p-2 mx-4'>
+            <img className='w-28 h-28' src={image} alt='' />
           </div>
 
-          <div className="flex flex-col justify-center w-32 p-2 mx-4">
+          <div className='flex flex-col justify-center w-32 p-2 mx-4'>
             <p> {title}</p>
           </div>
 
-          <div className="flex flex-col justify-center p-2 mx-4">
+          <div className='flex flex-col justify-center p-2 mx-4'>
             <p> {price}$ </p>
           </div>
 
-          <div className="flex flex-col justify-center p-2 mx-4">
-            <div className="flex flex-row justify-center w-8">
+          <div className='flex flex-col justify-center p-2 mx-4'>
+            <div className='flex flex-row justify-center w-8'>
               <button
-                className="px-2 py-1 border rounded"
+                className='px-2 py-1 border rounded'
                 onClick={(e) => {
                   e.preventDefault();
                   if (currentItem.count > 0) {
@@ -63,11 +63,11 @@ function Item({ props }) {
               >
                 -
               </button>
-              <div className="px-2 py-1 text-center border">
+              <div className='px-2 py-1 text-center border'>
                 {currentItem.count}
               </div>
               <button
-                className="px-2 py-1 border rounded"
+                className='px-2 py-1 border rounded'
                 onClick={(e) => {
                   e.preventDefault();
                   setTotalCount((prev) => prev + 1);
@@ -81,7 +81,7 @@ function Item({ props }) {
             </div>
           </div>
 
-          <div className="flex flex-col justify-center p-2 mx-4">
+          <div className='flex flex-col justify-center p-2 mx-4'>
             <p> Cost : {calcuatePrice()}$ </p>
           </div>
         </div>
@@ -90,4 +90,4 @@ function Item({ props }) {
   );
 }
 
-export default Item;
+export default Cart;
