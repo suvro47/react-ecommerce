@@ -1,33 +1,17 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Navbar from "./Navbar";
 import Product from "./Product";
 import CartList from "./CartList";
 import Loader from "react-loader-spinner";
+import useFetch from "./useFetch";
 
 //import image from "../assets/image.jpg";
 
 function ProductList() {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    axios
-      .get("https://fakestoreapi.com/products")
-      .then((res) => {
-        setProducts(res.data);
-        setIsLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    setIsLoading(true);
-  }, []);
+  const { products, isLoading } = useFetch("https://fakestoreapi.com/products");
 
   return (
-    <div
-      className='h-auto font-sans font-medium bg-contain bg-gradient-to-r from-gray-100 to-gray-200' //style={{ backgroundImage: `url(${image})` }}
-    >
+    <div className='h-auto font-sans font-medium bg-contain bg-gradient-to-r from-gray-100 to-gray-200'>
       <section className='sticky top-0'>
         <Navbar />
       </section>
