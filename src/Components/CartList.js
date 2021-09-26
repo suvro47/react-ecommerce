@@ -5,6 +5,7 @@ import Cart from "./Cart";
 import { Link } from "react-router-dom";
 
 const customStyles = {
+  position: "fixed",
   top: "80px",
   left: "35%",
   right: "auto",
@@ -12,8 +13,7 @@ const customStyles = {
   width: "65%",
   height: "80%",
   background: "white",
-  position: "fixed",
-  
+  overflow: "scroll",
 };
 
 function CartList() {
